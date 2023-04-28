@@ -5,7 +5,7 @@ Data
 ----
 *Currently, we work on a full clean database for people to work with and enjoy!*
 
-In the mean time, the link below leads to the dataset used for training the model.
+In the meantime, the link below leads to the dataset used for training the model.
 
 https://drive.google.com/drive/folders/1Sb6nPaSgeX66Wo5uG8NYRmcMfvGr76_K?usp=sharing
 
