@@ -1,0 +1,2 @@
+class NoBondsError(Exception):
+    pass
