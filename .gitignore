@@ -1,0 +1,45 @@
+# Module install files:
+*.egg-info
+
+# jupyter-notebook checkpoints:
+.ipynb_checkpoints
+
+# Data files:
+*.rar
+*.png
+*.pdb
+*.csv
+*.json
+*.pkl
+
+# Config files:
+*.yml
+
+# Singularity containers:
+*.sif
+
+# Google drive files:
+*client_secrets.json
+
+# Custom files
+Data/
+Predictions/
+RawData/
+logs/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Bb]uild/
+
+# Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
