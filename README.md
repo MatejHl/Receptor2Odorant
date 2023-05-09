@@ -34,11 +34,11 @@ conda activate base
 ### Run scripts with a config file:
 (Assuming that Receptor2Odorant dir is binded as /mnt)
 ```
-python /mnt/Receptor2Odorant/scripts/main.py --config /mnt/Receptor2Odorant/configs/config_train.yml
+python /mnt/Receptor2Odorant/scripts/main.py --config /mnt/configs/config_train.yml
 ```
 or
 ```
-python /mnt/Receptor2Odorant/scripts/main_odor_embedding.py --config /mnt/Receptor2Odorant/configs/config_odor_embedding_train.yml
+python /mnt/Receptor2Odorant/scripts/main_odor_embedding.py --config /mnt/configs/config_odor_embedding_train.yml
 ```
 There are several types of config files available:
 `config_precompute.yml`,`config_train.yml`,`config_eval.yml`,`config_predict.yml`,`config_predict_single.yml`,`config_odor_embedding_train.yml`,`config_odor_embedding_predict.yml`
