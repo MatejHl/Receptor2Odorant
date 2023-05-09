@@ -13,7 +13,7 @@
 *.pkl
 
 # Config files:
-*.yml
+# *.yml
 
 # Singularity containers:
 *.sif
