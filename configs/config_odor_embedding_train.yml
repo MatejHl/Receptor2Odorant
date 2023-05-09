@@ -1,0 +1,47 @@
+CASE: odor_embedding
+ACTION: train
+# ----- Model config -----:
+# MODEL_NAME: VanillaMPNN
+NUM_CLASSES: 178
+ATOM_FEATURES:
+  - AtomicNum
+  - ChiralTag
+  - Hybridization
+  - FormalCharge
+  - NumImplicitHs
+  - ExplicitValence
+  - Mass
+  - IsAromatic
+BOND_FEATURES:
+  - BondType
+  - IsAromatic
+RESTORE_FILE: null
+# ----- Run config -----:
+BATCH_SIZE: 700
+LOADER_OUTPUT_TYPE: tf
+N_PARTITIONS: 0
+PADDING_N_EDGE: 265
+PADDING_N_NODE: 128
+RETURN_INTERMEDIATES: false
+# ----- Train config -----:
+LEARNING_RATE: 0.001
+LOG_IMAGES_FREQUENCY: 50
+LOSS_OPTION: cross_entropy
+N_EPOCH: 1000
+OPTIMIZATION:
+  OPTION: adamw_polynomial
+SAVE_FREQUENCY: 100
+# ----- Logging config -----:
+LOGGING_PARENT_DIR: /mnt/logs/odor_embedding
+# ----- Data config -----:
+TRAIN_CSV_NAME: data_train.csv
+VALID_CSV_NAME: data_valid.csv
+PREDICT_CSV_NAME: .csv
+# DATACASE: pyrfume_base_20220908-114642/random_data/20220908-115036
+# DATA_PARENT_DIR: /mnt/Data
+DATACASE: pyrfume_base_20221004-170327/random_data/20221004-170528
+DATA_PARENT_DIR: /mnt/Data/
+LABEL_COL: Values
+MOL_COL: SMILES
+VALID_WEIGHT_COL: null
+WEIGHT_COL: Weight

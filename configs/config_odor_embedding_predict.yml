@@ -1,0 +1,35 @@
+CASE: GNN
+ACTION: predict
+# ----- Model config -----:
+# MODEL_NAME: VanillaMPNN
+NUM_CLASSES: 178
+ATOM_FEATURES:
+  - AtomicNum
+  - ChiralTag
+  - Hybridization
+  - FormalCharge
+  - NumImplicitHs
+  - ExplicitValence
+  - Mass
+  - IsAromatic
+BOND_FEATURES:
+  - BondType
+  - IsAromatic
+RESTORE_FILE: /mnt/logs/odor_embedding/pyrfume_base_20221004-170327/random_data/20221004-170528/VanillaMPNN/20230428-155720/ckpts/state_e300.pkl
+# ----- Run config -----:
+BATCH_SIZE: 700
+LOADER_OUTPUT_TYPE: jax
+N_PARTITIONS: 0
+PADDING_N_EDGE: 265
+PADDING_N_NODE: 128
+# ----- Train config -----:
+LEARNING_RATE: 0.001
+LOSS_OPTION: cross_entropy
+OPTIMIZATION:
+  OPTION: adamw_polynomial
+# ----- Logging config -----:
+LOGGING_PARENT_DIR: /mnt/Predictions/odor_embedding/pyrfume_base_20221004-170327/random_data/20221004-170528
+# ----- Data config -----:
+PREDICT_CSV_PATH: /mnt/Data/pyrfume_base_20221004-170327/full_data.csv
+LABEL_COL: null
+MOL_COL: SMILES

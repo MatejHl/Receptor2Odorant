@@ -1,0 +1,12 @@
+CASE: main
+ACTION: precompute
+# ----- Model config -----:
+MODEL_NAME: ProtBERT
+BATCH_SIZE: 4
+# ----- File config -----:
+DATA_FILE: /mnt/Data/m2or/mixDiscard_20230428-122803/seqs.csv
+SAVE_DIR: /mnt/Data/m2or/mixDiscard_20230428-122803
+MODE: w
+DBNAME: ProtBERT_CLS.h5
+ID_COL: seq_id
+SEQ_COL: mutated_Sequence

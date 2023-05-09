@@ -1,0 +1,63 @@
+CASE: main
+ACTION: train
+# ----- Model config -----:
+MODEL_NAME: normal_QK_model
+ATOM_FEATURES:
+  - AtomicNum
+  - ChiralTag
+  - Hybridization
+  - FormalCharge
+  - NumImplicitHs
+  - ExplicitValence
+  - Mass
+  - IsAromatic
+BOND_FEATURES:
+  - BondType
+  - Stereo
+  - IsAromatic
+RESTORE_FILE: null
+# ----- Graph config -----:
+LINE_GRAPH: false
+LINE_GRAPH_MAX_SIZE_MULTIPLIER: 5
+SELF_LOOPS: false
+# ----- Run config -----:
+BATCH_SIZE: 100
+LOADER_OUTPUT_TYPE: tf
+N_PARTITIONS: 0
+PADDING_N_EDGE: 64
+PADDING_N_NODE: 32
+PYTABLE_FROM_DISK: false
+# RETURN_INTERMEDIATES: false
+# ----- Train config -----:
+CLASS_ALPHA: null
+LEARNING_RATE: 0.001
+LOG_IMAGES_FREQUENCY: 5
+LOSS_OPTION: cross_entropy
+N_EPOCH: 10
+OPTIMIZATION:
+  OPTION: adam_transformer
+  WARMUP_STEPS: 6000
+  TRANSITION_EPOCHS: 500
+SAVE_FREQUENCY: 5
+# ----- Size cut config -----:
+BIG_BATCH_SIZE: 20
+BIG_PADDING_N_EDGE: 256
+BIG_PADDING_N_NODE: 128
+BIG_SWITCH_EPOCH: 2
+BIG_TRAIN_CSV_NAME: data_train_node128_edge256.csv
+BIG_VALID_CSV_NAME: data_valid_node128_edge256.csv
+SIZE_CUT_DIRNAME: size_cut
+# ----- Logging config -----:
+LOGGING_PARENT_DIR: /mnt/logs
+# ----- Data config -----:
+TRAIN_CSV_NAME: data_train_node32_edge64.csv
+VALID_CSV_NAME: data_valid_node32_edge64.csv
+BERT_H5FILE: /mnt/Data/m2or/mixDiscard_20230428-122803/PrecomputeProtBERT_CLS/ProtBERT_CLS.h5
+DATACASE: m2or/mixDiscard_20230428-122803/EC50_random_data/20230428-122918/orphans__keep/quality__screening_weight/mix__concatGraph
+DATA_PARENT_DIR: /mnt/Data
+LABEL_COL: Responsive
+MOL_COL: _SMILES
+SEQ_COL: null
+SEQ_ID_COL: seq_id
+VALID_WEIGHT_COL: null
+WEIGHT_COL: sample_weight
