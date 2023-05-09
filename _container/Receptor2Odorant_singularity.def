@@ -1,0 +1,74 @@
+Bootstrap: docker
+From: nvidia/cuda:11.2.0-cudnn8-runtime-ubuntu18.04
+
+%post
+    # Install essentiels
+    apt-get update
+    apt-get install -y \
+      build-essential \
+      cmake \
+      cuda-command-line-tools-11.2 \
+      git \
+      wget
+
+    # udate GCC 9
+    apt install -y software-properties-common
+    add-apt-repository ppa:ubuntu-toolchain-r/test
+    apt update
+    apt install -y gcc-9 g++-9
+
+    # Fix for Could not load dynamic library 'libcuda.so.1'
+    # See https://github.com/tensorflow/tensorflow/issues/10776 
+    ln -s /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
+
+    # miniconda setup
+    cd /opt/
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
+    . /opt/miniconda3/etc/profile.d/conda.sh
+    
+    conda update -n base conda
+    conda activate base
+    conda install python==3.9
+    # conda create --name rec2odorant_singularity python==3.8
+    # conda activate rec2odorant_singularity
+    
+    # conda update -qy conda
+    conda install -y -c conda-forge cudatoolkit==11.2
+    conda install -c conda-forge rdkit=2020.09.3
+
+    pip install --upgrade pip
+    # install packages
+    # conda install -y -c conda-forge openmm==7.5.1 cudnn==8.2.1.32 cudatoolkit==11.0.3 pdbfixer==1.7
+    # pip install numpy -- this is governed by other packages
+    pip install pandas==1.2.4
+    # pip install hdbscan==0.8.28
+    pip install hdbscan==0.8.29
+    # pip install joblib==1.1.0
+    pip install pyrfume==0.18.1
+    pip install git+https://github.com/MatejHl/envyaml.git@return_yaml_config
+
+
+    pip install scikit-learn==0.24.2
+    pip install scipy==1.6.3
+    pip install biopython==1.79
+    pip install h5py==3.1.0
+    pip install tables==3.6.1
+    pip install matplotlib==3.5.1
+    pip install networkx==2.8
+    pip install pubchempy==1.0.4
+    pip install jaxlib==0.3.2+cuda11.cudnn82 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+    pip install jax==0.3.4
+    pip install chex==0.0.7
+    pip install objax==1.4.0
+    pip install optax==0.0.8
+    pip install jraph==0.0.2.dev0
+    pip install flax==0.4.1
+    pip install torch==1.9.0+cu111 -f https://download.pytorch.org/whl/cu111/torch_stable.html
+    pip install transformers==4.8.2
+    pip install gin-config==0.5.0
+    pip install tensorflow==2.8.0
+
+    pip install --upgrade protobuf==3.20
+
+    # Install Receptor2Odorant library:
+    pip install git+https://github.com/MatejHl/Receptor2Odorant.git
