@@ -64,3 +64,7 @@ Download data file: `Data_figures.zip` and `Dataset.zip` unzip them and place in
   - Content of `Data` from `Data_figures.zip` to `Receptor2Odorant/Figures/Data`
   - Content of `Dataset` from `Dataset.zip` to `Receptor2Odorant/RawData/m2or`
   - Content of `_seq_dist_matrices` from `_seq_dist_matrices.zip` to `Receptor2Odorant/RawData/m2or/_seq_dist_matrices`
+
+Origianl data used in experiments:
+----
+  - Folders from `mixDiscard_20220608-144844.zip` in the Google drive are original data splits used in the experiments. To create new splits see code in `Receptor2Odorant/datasets`, in particular `Receptor2Odorant/datasets/m2or.py` for olfactory receptor data.
