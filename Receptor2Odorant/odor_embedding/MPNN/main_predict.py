@@ -110,5 +110,3 @@ def main_predict(hparams):
     export_dir = logdir
     copy(src = hparams['PREDICT_CSV_PATH'], dst = os.path.join(export_dir, 'pyrfume_embedding_' + _datetime + '_source.csv'))
     df[[hparams['MOL_COL'], 'prediction', 'embed']].to_json(os.path.join(export_dir, 'pyrfume_embedding_' + _datetime + '_embed.json'), orient = 'index')
-
-    
